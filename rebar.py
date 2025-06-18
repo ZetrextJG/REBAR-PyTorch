@@ -22,7 +22,7 @@ def g_tilde(v, b, theta, eps = 1e-8):
     """
     zb1 = torch.log((v / (1 - v) + eps) * (1/(1-theta)) + 1)
     zb0 = -torch.log((v / (1 - v) + eps) * (1/theta) + 1)
-    return torch.where(b == 1, zb1, zb0)
+    return b * zb1 + (b-1) * zb0
 
 
 def H(z):
